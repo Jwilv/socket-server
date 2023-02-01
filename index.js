@@ -1,4 +1,5 @@
-const express = require('express')
+const express = require('express');
+const { Socket } = require('socket.io');
 //Servidor de express
 const app = express();
 //Servidor de sockets
@@ -8,8 +9,8 @@ app.use( express.static(__dirname + '/public'))
 
 const io = require('socket.io')(server);
 
-io.on('connection', () => { 
-    console.log('cliente conectado');
+io.on('connection', ( socket ) => { 
+    socket.emit('ms-bienvenida','bienvenidos al himalaya')
 });
 
 server.listen(5050, ()=>{
