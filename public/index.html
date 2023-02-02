@@ -30,15 +30,15 @@
     </form>
 
 
-<div class="row">
-    <div class="col">
-        <ul id="mismsg">
-            <li>
+    <div class="row">
+        <div class="col">
+            <ul id="mismsg">
+                <li>
 
-            </li>
-        </ul>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"
@@ -51,6 +51,17 @@
         })
         const form = document.querySelector('#miFormulario')
         const msg = document.querySelector('#mismsg')
+        const txt = document.querySelector('#txtMsg')
+
+        form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const newTxt = txt.value;
+            socket.emit('msg-to-server', { text: newTxt })
+        })
+
+        socket.on('msg-from-server', data => {
+            console.log(data);
+        })
 
         // setTimeout(() => {
         //     socket.emit('msg-cliente', {

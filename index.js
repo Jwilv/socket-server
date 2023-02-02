@@ -16,8 +16,9 @@ io.on('connection', ( socket ) => {
     //     fecha: new Date(),
     // });
 
-    socket.on('msg-cliente', ( data ) => { 
+    socket.on('msg-to-server', ( data ) => { 
         console.log(data)
+        socket.emit('msg-from-server', data)
     });
 
 });
