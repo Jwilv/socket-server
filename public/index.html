@@ -33,9 +33,6 @@
     <div class="row">
         <div class="col">
             <ul id="mismsg">
-                <li>
-
-                </li>
             </ul>
         </div>
     </div>
@@ -61,6 +58,7 @@
 
         socket.on('msg-from-server', data => {
             console.log(data);
+            msg.innerHTML += `<li>${data.text}</li>`
         })
 
         // setTimeout(() => {
