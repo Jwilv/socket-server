@@ -11,10 +11,10 @@ const io = require('socket.io')(server);
 
 io.on('connection', ( socket ) => { 
 
-    socket.emit('ms-bienvenida',{
-        msg:'bienvenidos al himalaya',
-        fecha: new Date(),
-    });
+    // socket.emit('ms-bienvenida',{
+    //     msg:'bienvenidos al himalaya',
+    //     fecha: new Date(),
+    // });
 
     socket.on('msg-cliente', ( data ) => { 
         console.log(data)
