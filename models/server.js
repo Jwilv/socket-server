@@ -3,7 +3,8 @@ const express = require('express');
 const http = require('http');
 //socket
 const socketio = require('socket.io');
-const path = require('path')
+const path = require('path');
+const Sockets = require('./sockets');
 
 class Server {
 
@@ -20,6 +21,11 @@ class Server {
 
     }
 
+    middelwares(){
+        //desplegar directorio publico
+        this.app.use( express.static( path.resolve( __dirname, '../public' ) ) );
+    }
+
     goServer(){
         //desplegar server
         this.server.listen(this.port, ()=>{
@@ -27,13 +33,13 @@ class Server {
         });
     }
 
-    middelwares(){
-        //desplegar directorio publico
-        this.app.use( express.static(path.resolve(__dirname + '../public')))
+    configureSockets(){
+        new Sockets( this.io);
     }
 
     execute(){
         this.middelwares();
+        this.configureSockets();
         this.goServer();
     }
 
