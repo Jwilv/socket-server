@@ -11,7 +11,31 @@
 </head>
 
 <body class="container">
-    <h1 class="mt-5">bloqueado</h1>
+    <h1 class="mt-5">minichat</h1>
+    <hr>
+
+
+
+    <form id="miFormulario">
+        <div class="row">
+            <div class="col-8">
+                <input type="text" id="txtMsg" placeholder="mensaje" class="form-control">
+            </div>
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary">
+                    Enviar
+                </button>
+            </div>
+        </div>
+    </form>
+
+
+    <div class="row">
+        <div class="col">
+            <ul id="mismsg">
+            </ul>
+        </div>
+    </div>
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"
